@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+  <Request>
+    <authentication>true</authentication>
+      <key><![CDATA[DQ4OR5OKacE3IhLmDBA]]></key>
+    <method><![CDATA[search_search]]></method>
+  </Request>
+  <search>
+  <query><![CDATA[Dune]]></query>
+    <results-start>1</results-start>
+    <results-end>20</results-end>
+    <total-results>20689</total-results>
+    <source>Goodreads</source>
+    <query-time-seconds>0.08</query-time-seconds>
+    <results>
+        <work>
+  <id type="integer">3634639</id>
+  <books_count type="integer">364</books_count>
+  <ratings_count type="integer">768528</ratings_count>
+  <text_reviews_count type="integer">23690</text_reviews_count>
+  <original_publication_year type="integer">1965</original_publication_year>
+  <original_publication_month type="integer">6</original_publication_month>
+  <original_publication_day type="integer" nil="true"/>
+  <average_rating>4.23</average_rating>
+  <best_book type="Book">
+    <id type="integer">44767458</id>
+    <title>Dune (Dune, #1)</title>
+    <author>
+      <id type="integer">58</id>
+      <name>Frank Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555447414l/44767458._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555447414l/44767458._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">3634570</id>
+  <books_count type="integer">192</books_count>
+  <ratings_count type="integer">134789</ratings_count>
+  <text_reviews_count type="integer">4197</text_reviews_count>
+  <original_publication_year type="integer">1969</original_publication_year>
+  <original_publication_month type="integer">10</original_publication_month>
+  <original_publication_day type="integer" nil="true"/>
+  <average_rating>3.88</average_rating>
+  <best_book type="Book">
+    <id type="integer">44492285</id>
+    <title>Dune Messiah (Dune Chronicles, #2)</title>
+    <author>
+      <id type="integer">58</id>
+      <name>Frank Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1577043824l/44492285._SY160_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1577043824l/44492285._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">3634573</id>
+  <books_count type="integer">151</books_count>
+  <ratings_count type="integer">106664</ratings_count>
+  <text_reviews_count type="integer">2386</text_reviews_count>
+  <original_publication_year type="integer">1976</original_publication_year>
+  <original_publication_month type="integer">4</original_publication_month>
+  <original_publication_day type="integer">21</original_publication_day>
+  <average_rating>3.94</average_rating>
+  <best_book type="Book">
+    <id type="integer">44492286</id>
+    <title>Children of Dune (Dune Chronicles, #3)</title>
+    <author>
+      <id type="integer">58</id>
+      <name>Frank Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564783201l/44492286._SY160_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564783201l/44492286._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">551</id>
+  <books_count type="integer">27</books_count>
+  <ratings_count type="integer">56573</ratings_count>
+  <text_reviews_count type="integer">261</text_reviews_count>
+  <original_publication_year type="integer">1979</original_publication_year>
+  <original_publication_month type="integer">4</original_publication_month>
+  <original_publication_day type="integer" nil="true"/>
+  <average_rating>4.36</average_rating>
+  <best_book type="Book">
+    <id type="integer">53764</id>
+    <title>The Great Dune Trilogy</title>
+    <author>
+      <id type="integer">58</id>
+      <name>Frank Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1419962914l/53764._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1419962914l/53764._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">3634588</id>
+  <books_count type="integer">126</books_count>
+  <ratings_count type="integer">67421</ratings_count>
+  <text_reviews_count type="integer">1708</text_reviews_count>
+  <original_publication_year type="integer">1981</original_publication_year>
+  <original_publication_month type="integer">5</original_publication_month>
+  <original_publication_day type="integer">6</original_publication_day>
+  <average_rating>3.86</average_rating>
+  <best_book type="Book">
+    <id type="integer">44439415</id>
+    <title>God Emperor of Dune (Dune Chronicles, #4)</title>
+    <author>
+      <id type="integer">58</id>
+      <name>Frank Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564025916l/44439415._SY160_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564025916l/44439415._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">3634575</id>
+  <books_count type="integer">112</books_count>
+  <ratings_count type="integer">54596</ratings_count>
+  <text_reviews_count type="integer">1035</text_reviews_count>
+  <original_publication_year type="integer">1984</original_publication_year>
+  <original_publication_month type="integer">4</original_publication_month>
+  <original_publication_day type="integer">1</original_publication_day>
+  <average_rating>3.87</average_rating>
+  <best_book type="Book">
+    <id type="integer">44492287</id>
+    <title>Heretics of Dune (Dune Chronicles, #5)</title>
+    <author>
+      <id type="integer">58</id>
+      <name>Frank Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564027750l/44492287._SY160_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564027750l/44492287._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">3634569</id>
+  <books_count type="integer">94</books_count>
+  <ratings_count type="integer">46402</ratings_count>
+  <text_reviews_count type="integer">890</text_reviews_count>
+  <original_publication_year type="integer">1985</original_publication_year>
+  <original_publication_month type="integer">4</original_publication_month>
+  <original_publication_day type="integer" nil="true"/>
+  <average_rating>3.91</average_rating>
+  <best_book type="Book">
+    <id type="integer">44439416</id>
+    <title>Chapterhouse: Dune (Dune Chronicles, #6)</title>
+    <author>
+      <id type="integer">58</id>
+      <name>Frank Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564029233l/44439416._SY160_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564029233l/44439416._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">58336</id>
+  <books_count type="integer">118</books_count>
+  <ratings_count type="integer">22136</ratings_count>
+  <text_reviews_count type="integer">1785</text_reviews_count>
+  <original_publication_year type="integer">1962</original_publication_year>
+  <original_publication_month type="integer" nil="true"/>
+  <original_publication_day type="integer" nil="true"/>
+  <average_rating>3.91</average_rating>
+  <best_book type="Book">
+    <id type="integer">9998</id>
+    <title>The Woman in the Dunes</title>
+    <author>
+      <id type="integer">6526</id>
+      <name>Kōbō Abe</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361254930l/9998._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361254930l/9998._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">1278722</id>
+  <books_count type="integer">52</books_count>
+  <ratings_count type="integer">21296</ratings_count>
+  <text_reviews_count type="integer">534</text_reviews_count>
+  <original_publication_year type="integer">2002</original_publication_year>
+  <original_publication_month type="integer">10</original_publication_month>
+  <original_publication_day type="integer">3</original_publication_day>
+  <average_rating>3.70</average_rating>
+  <best_book type="Book">
+    <id type="integer">99219</id>
+    <title>The Butlerian Jihad (Legends of Dune, #1)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1505458671l/99219._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1505458671l/99219._SX50_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">711892</id>
+  <books_count type="integer">6</books_count>
+  <ratings_count type="integer">21948</ratings_count>
+  <text_reviews_count type="integer">511</text_reviews_count>
+  <original_publication_year type="integer">1999</original_publication_year>
+  <original_publication_month type="integer">10</original_publication_month>
+  <original_publication_day type="integer">5</original_publication_day>
+  <average_rating>3.76</average_rating>
+  <best_book type="Book">
+    <id type="integer">761575</id>
+    <title>House Atreides (Prelude to Dune #1)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1403181106l/761575._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1403181106l/761575._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">705993</id>
+  <books_count type="integer">2</books_count>
+  <ratings_count type="integer">12773</ratings_count>
+  <text_reviews_count type="integer">54</text_reviews_count>
+  <original_publication_year type="integer">2002</original_publication_year>
+  <original_publication_month type="integer">8</original_publication_month>
+  <original_publication_day type="integer">8</original_publication_day>
+  <average_rating>3.66</average_rating>
+  <best_book type="Book">
+    <id type="integer">719745</id>
+    <title>Hunting Harkonnens (Legends of Dune, #0.5)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1350161284l/719745._SY160_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1350161284l/719745._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">4911</id>
+  <books_count type="integer">37</books_count>
+  <ratings_count type="integer">12717</ratings_count>
+  <text_reviews_count type="integer">388</text_reviews_count>
+  <original_publication_year type="integer">2006</original_publication_year>
+  <original_publication_month type="integer">4</original_publication_month>
+  <original_publication_day type="integer" nil="true"/>
+  <average_rating>3.66</average_rating>
+  <best_book type="Book">
+    <id type="integer">20249</id>
+    <title>Hunters of Dune (Dune Chronicles, #7)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">705946</id>
+  <books_count type="integer">55</books_count>
+  <ratings_count type="integer">15095</ratings_count>
+  <text_reviews_count type="integer">276</text_reviews_count>
+  <original_publication_year type="integer">2000</original_publication_year>
+  <original_publication_month type="integer">10</original_publication_month>
+  <original_publication_day type="integer">3</original_publication_day>
+  <average_rating>3.68</average_rating>
+  <best_book type="Book">
+    <id type="integer">20253</id>
+    <title>House Harkonnen (Prelude to Dune #2)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1403181168l/20253._SY160_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1403181168l/20253._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">6229996</id>
+  <books_count type="integer">36</books_count>
+  <ratings_count type="integer">13201</ratings_count>
+  <text_reviews_count type="integer">911</text_reviews_count>
+  <original_publication_year type="integer">2009</original_publication_year>
+  <original_publication_month type="integer">6</original_publication_month>
+  <original_publication_day type="integer">16</original_publication_day>
+  <average_rating>3.44</average_rating>
+  <best_book type="Book">
+    <id type="integer">6054190</id>
+    <title>Dune Road</title>
+    <author>
+      <id type="integer">12915</id>
+      <name>Jane Green</name>
+    </author>
+    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">41917</id>
+  <books_count type="integer">35</books_count>
+  <ratings_count type="integer">10615</ratings_count>
+  <text_reviews_count type="integer">395</text_reviews_count>
+  <original_publication_year type="integer">2007</original_publication_year>
+  <original_publication_month type="integer" nil="true"/>
+  <original_publication_day type="integer" nil="true"/>
+  <average_rating>3.65</average_rating>
+  <best_book type="Book">
+    <id type="integer">42434</id>
+    <title>Sandworms of Dune (Dune Chronicles #8)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">705991</id>
+  <books_count type="integer">47</books_count>
+  <ratings_count type="integer">14280</ratings_count>
+  <text_reviews_count type="integer">235</text_reviews_count>
+  <original_publication_year type="integer">2001</original_publication_year>
+  <original_publication_month type="integer">10</original_publication_month>
+  <original_publication_day type="integer">2</original_publication_day>
+  <average_rating>3.69</average_rating>
+  <best_book type="Book">
+    <id type="integer">20252</id>
+    <title>House Corrino (Prelude to Dune #3)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1298689043l/20252._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1298689043l/20252._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">69577204</id>
+  <books_count type="integer">6</books_count>
+  <ratings_count type="integer">1077</ratings_count>
+  <text_reviews_count type="integer">209</text_reviews_count>
+  <original_publication_year type="integer">2019</original_publication_year>
+  <original_publication_month type="integer">12</original_publication_month>
+  <original_publication_day type="integer">31</original_publication_day>
+  <average_rating>4.51</average_rating>
+  <best_book type="Book">
+    <id type="integer">44909230</id>
+    <title>999: The Extraordinary Young Women of the First Official Jewish Transport to Auschwitz</title>
+    <author>
+      <id type="integer">219648</id>
+      <name>Heather Dune Macadam</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1567776673l/44909230._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1567776673l/44909230._SX50_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">2081848</id>
+  <books_count type="integer">40</books_count>
+  <ratings_count type="integer">13030</ratings_count>
+  <text_reviews_count type="integer">291</text_reviews_count>
+  <original_publication_year type="integer">2003</original_publication_year>
+  <original_publication_month type="integer">9</original_publication_month>
+  <original_publication_day type="integer">19</original_publication_day>
+  <average_rating>3.76</average_rating>
+  <best_book type="Book">
+    <id type="integer">99218</id>
+    <title>The Machine Crusade (Legends of Dune, #2)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1412547890l/99218._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1412547890l/99218._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">21444</id>
+  <books_count type="integer">40</books_count>
+  <ratings_count type="integer">11415</ratings_count>
+  <text_reviews_count type="integer">249</text_reviews_count>
+  <original_publication_year type="integer">2004</original_publication_year>
+  <original_publication_month type="integer">8</original_publication_month>
+  <original_publication_day type="integer">11</original_publication_day>
+  <average_rating>3.75</average_rating>
+  <best_book type="Book">
+    <id type="integer">99220</id>
+    <title>The Battle of Corrin (Legends of Dune, #3)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1317792692l/99220._SX98_.jpg</image_url>
+    <small_image_url>https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1317792692l/99220._SY75_.jpg</small_image_url>
+  </best_book>
+</work>
+
+        <work>
+  <id type="integer">6248814</id>
+  <books_count type="integer">4</books_count>
+  <ratings_count type="integer">7437</ratings_count>
+  <text_reviews_count type="integer">201</text_reviews_count>
+  <original_publication_year type="integer">2009</original_publication_year>
+  <original_publication_month type="integer">8</original_publication_month>
+  <original_publication_day type="integer">4</original_publication_day>
+  <average_rating>3.78</average_rating>
+  <best_book type="Book">
+    <id type="integer">6072318</id>
+    <title>The Winds of Dune (Heroes of Dune #2)</title>
+    <author>
+      <id type="integer">56</id>
+      <name>Brian Herbert</name>
+    </author>
+    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+  </best_book>
+</work>
+
+    </results>
+</search>
+
+</GoodreadsResponse>
