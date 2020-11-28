@@ -109,14 +109,14 @@ export const DataProvider = ({ children }) => {
   };
 
   const readingNow = () => {
-    const thebook = books.filter(book => book.club.reading);
-    if (thebook.length) return thebook[0];
-      else return '';
+    if (books.length) {
+      const thebook = books.filter(book => book.club.reading);
+      return thebook[0];
+    } else return '';
     //
   };
   console.log('readingNow');
   console.log(readingNow());
-  console.log(readingNow().club.reading);
 
   return (
     <BookClubContext.Provider value={{

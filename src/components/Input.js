@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspended } from 'react';
 import bookGR from '../data/bookGR.xml';
 import { FaSearch } from 'react-icons/fa';
 
@@ -106,7 +106,8 @@ export const useGRSearch = defaultValue => {
   useEffect(() => {
     if (searchValue === '') return;
     console.log(`searching for ${searchValue}`);
-    const searchURI = decodeURI(searchValue);
+    /*const searchURI = decodeURI(searchValue);*/
+    const searchURI = searchValue;
     console.log(`searching for ${searchURI}`);
 //    console.log(bookGR.text());
     setLoading(true);

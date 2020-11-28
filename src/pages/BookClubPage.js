@@ -28,7 +28,7 @@ export const BookClubPage = ( ) => {
     readingNow,
    } = useData();
 
-    console.log(`${teleport[0]} ${teleport[1]}`);
+    console.log(`teleports 0:${teleport[0]} 1:${teleport[1]}`);
 
   if (!currentReader.length) {
     console.log('currentReader is undefined');
