@@ -12,7 +12,7 @@ export const DataProvider = ({ children }) => {
 
   const bookByID = (key) => books.findIndex((obj => obj.id === key));
 
-  const addBook = ({ bookRoot, best_book: bookBest }) => {
+  const addBook = ({  best_book: bookBest, ...bookRoot }) => {
     console.log('AddBook');
     const newBooks = [...books,
       { ...bookBest,
@@ -51,7 +51,8 @@ export const DataProvider = ({ children }) => {
         }
       }
     ];
-    setBooks(newReaders);
+    console.log(newReaders);
+    setReaders(newReaders);
   };
 
   const removeReader = ({ key }) => {
@@ -76,6 +77,16 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const callBookDetails = (bookID) => {
+    const book = books[bookByID(bookID)];
+    console.log(book);
+    setTeleport(['book details', book]);
+  };
+
+  const closeRightPanel = () => {
+    setTeleport(['']);
+  };
+
   const countReadingBooks = () => {
     let count = 0;
     books.map(book => {if (book.club.reading) count++});
@@ -91,6 +102,21 @@ export const DataProvider = ({ children }) => {
     setBooks(newBooks);
   };
 
+  const makeNote = (bookID, noteData) => {
+    if (!noteData) {
+      setTeleport(['book note', bookID]);
+    } else {}
+  };
+
+  const readingNow = () => {
+    const thebook = books.filter(book => book.club.reading);
+    if (thebook.length) return thebook[0];
+      else return '';
+    //
+  };
+  console.log('readingNow');
+  console.log(readingNow());
+  console.log(readingNow().club.reading);
 
   return (
     <BookClubContext.Provider value={{
@@ -105,6 +131,11 @@ export const DataProvider = ({ children }) => {
       vote,
       readIt,
       countReadingBooks,
+      callBookDetails,
+      makeNote,
+      bookByID,
+      closeRightPanel,
+      readingNow,
     }}>
       {children}
     </BookClubContext.Provider>

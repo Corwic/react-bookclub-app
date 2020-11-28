@@ -6,47 +6,50 @@ export const Input = ({ onChooseItemData = f => f, listOf }) => {
   const [ search, setSearch ] = useState ('');
   const [ grSearchResult, setGRRequest, grReset, loading ] = useGRSearch ('');
 
-
   if ( grSearchResult ) {
-    if ( listOf==='books') return (
+    if ( listOf==='books' && grSearchResult!=='no result') return (
       <InputChooseBook books={grSearchResult}
-        onChooseItem={data => {onChooseItemData(data); grReset()}}
-
+        onChooseItem={data => {if (data) onChooseItemData(data); console.log('The book choice is done'); grReset()}}
       />
     );
-    if ( listOf==='readers') return (
+    /*if ( listOf==='readers') return (
       <InputApproveReader readers={grSearchResult}
         onChooseItem={onChooseItemData}/>
-    );
+    );*/
   };
 
-  if ( loading ) return (<div className={'listItem'}>Loading</div>);
+  console.log('loading is ' + loading);
+  if ( loading ) {return (<div className={'listItem'}>Loading</div>);}
 
-  if ( !grSearchResult ) {
   console.log('Input: no grSearchResult')
   return (
+    <>
+    {(grSearchResult==='no result')
+      ? <div className="listItem">Goodreads didn't find anything like that</div>
+      : null
+    }
     <form
       className="listItem search"
       onSubmit={(e) => {
         e.preventDefault();
-        setGRRequest(search);
+        if ( listOf==='books') setGRRequest(search);
+        if ( listOf==='readers') onChooseItemData(search);
         setSearch('');
       }}>
-      <div>
-        <FaSearch
-          style={{paddingRight: '5px'}}
-          color={'black'}/>
         <input
           type="text"
           placeholder={listOf==='books' ? 'Add a book' : 'Add a reader' /*or "+"*/}
           value={search}
           onChange={e => setSearch(e.target.value)} />
-      </div>
       <button>Submit</button>
     </form>
+    </>
   )
-  };
 };
+/*<FaSearch
+  style={{paddingRight: '5px'}}
+  color={'black'}/>*/
+/*-----------------------------------------------------------------------*/
 
 export const useGRSearch = defaultValue => {
   const [searchValue, setSearchValue] = useState( defaultValue );
@@ -77,11 +80,22 @@ export const useGRSearch = defaultValue => {
     stopNodes: ["parse-me-as-string"]
   };
 
+  const copyObj = (obj) => JSON.parse(JSON.stringify(obj));
+  /*const surfaceCloneObj = (obj) => { ...obj };*/
+  const surfaceCopyObj = (obj) => Object.assign({}, obj);
+
+
   useEffect(() => {
     console.log('searchResult is changed');
     if (searchResult === '')
       {setOutputData(''); return};
-    const selectedBooks = searchResult.GoodreadsResponse.search.results.work.slice();
+    console.log(searchResult);
+    console.log(typeof searchResult);
+    if (searchResult.GoodreadsResponse.search.results === '')
+      {setOutputData('no result'); return};
+    console.log(searchResult?.GoodreadsResponse.search.results.work?.average_rating);
+    const selectedBooks = copyObj(searchResult?.GoodreadsResponse.search.results.work);
+    console.log(selectedBooks?.average_rating);
     //GoodreadsResponse.search.results.work
     console.log('work:');
     console.log(selectedBooks);
@@ -92,11 +106,13 @@ export const useGRSearch = defaultValue => {
   useEffect(() => {
     if (searchValue === '') return;
     console.log(`searching for ${searchValue}`);
+    const searchURI = decodeURI(searchValue);
+    console.log(`searching for ${searchURI}`);
 //    console.log(bookGR.text());
-    setLoading(true)
+    setLoading(true);
     fetch(
         `https://cors-anywhere.herokuapp.com/` +
-        `https://www.goodreads.com/search.xml?key=${apiKey}&q=${searchValue}`)
+        `https://www.goodreads.com/search.xml?key=${apiKey}&q=${searchURI}`)
       .then(response => response.text())
       .then(xmlData => parser.parse(xmlData, options))
       .then(setSearchResult)
@@ -110,14 +126,14 @@ export const useGRSearch = defaultValue => {
     outputData,
     search => setSearchValue(search),
     () => setSearchResult(''),
-    loading
+    loading,
   ];
 };
 
+/*-----------------------------------------------------------------------*/
 
-export const ShowBookCard = ({ book, onChoose = f => f }) => {
+export const InputBookCard = ({ book, onChoose = f => f }) => {
   const bookBest = book.best_book;
-
 
   /*chooseOne = onChoose */
   return (
@@ -140,30 +156,50 @@ export const ShowBookCard = ({ book, onChoose = f => f }) => {
   )
 }
 
+/*-----------------------------------------------------------------------*/
 
 export const InputChooseBook = ({ books, onChooseItem = f=>f }) => {
   const [ numberOfBooks, setNumberOfBooks ] = useState(1)
 
-  console.log(`InputChooseBook ${books}`)
+  console.log(`Choose Book List`);
+  console.log(books);
+  console.log(books.length);
   return (
     <div className="booksList toSelect" style={{maxWidth: '450px'}}>
-      {(books !== '')
-        ? books.slice(0, numberOfBooks).map(book =>
-          <ShowBookCard
-            key={book.id}
-            book={book}
-            onChoose={onChooseItem}
-          />)
+      <p>Goodreads found {books.length} title{books.length !== 1 ? 's' : null}</p>
+      <p>Is it the one?</p>
+      { (books !== '')
+          ? (!books.length)
+            ? <InputBookCard
+              key={books.id}
+              book={books}
+              onChoose={onChooseItem}
+              />
+            : books.slice(0, numberOfBooks).map(book =>
+              <div className="listItem">
+              <InputBookCard
+                key={book.id}
+                book={book}
+                onChoose={onChooseItem}
+                />
+              </div>)
+          : null
+      }
+      {books.length > numberOfBooks
+        ? <button onClick={() => setNumberOfBooks(numberOfBooks + 1)}>Show one more</button>
         : null
       }
-      <button onClick={() => setNumberOfBooks(numberOfBooks + 1)}>+</button>
+      <button className="closeChooseBook"
+        onClick={() => onChooseItem('')}>Close</button>
     </div>
   );
 };
+/*-----------------------------------------------------------------------*/
 
 export const InputChooseReader = () => {
   return ('InputChooseReader')
 };
+/*-----------------------------------------------------------------------*/
 
 export const InputApproveReader = () => {
   return ('InputApproveReader')

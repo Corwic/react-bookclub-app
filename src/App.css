@@ -29,8 +29,8 @@
 }
 
 #root {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  /*display: grid;
+  grid-template-columns: auto 1fr;*/
 }
 h2 {
   margin: 1rem 0 .5rem;
@@ -40,56 +40,88 @@ p {
 }
 nav ul {
   list-style: none;
-}
-
-.bookclub {
   display: grid;
   grid-auto-flow: column;
-  transition: 2s ease-in-out;
-}
-.bookclub.wide {
-  grid-template-columns: 1fr 1fr;
-}
-
-
-
-.booksList {
-  display: grid;
-  grid-auto-columns: minmax(350px, 1fr);
-  grid-auto-flow: column;
-}
-.bookCard {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: repeat(2, auto);
-  grid-template-areas:
-    'img title'
-    'foot foot';
-  border: solid 1px grey;
-  padding: 10px;
-  margin: 5px;
-}
-.bookCard > header {grid-area: title}
-.bookCard > img {grid-area: img}
-.bookCard > div {grid-area: foot}
-
-
-.allLists { /*old*/
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 button {
+  border: solid 2px black;
+  color: black;
+  background-color: initial;
+  padding: 10px 20px;
+}
+button:active {
   background-color: firebrick;
   color: white;
   border: none;
 }
+.closeChooseBook {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.hidden {
+  display: none;
+}
 
 
-.listBar {
+
+
+.bookclub {
   display: grid;
+  grid-template-columns: [start] auto auto auto [end];
+  /*grid-auto-flow: column;*/
+  justify-content: center;
+  align-items: start;
+  transition: 2s ease-in-out;
+  /*transform: translate(0,-2vh);*/
+}
+
+.header {
+  grid-column: start / end;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: baseline;
+}
+.header > h1 {
+  justify-self: flex-start;
+}
+.header > p {
+  justify-self: flex-end;
+}
+/*.bookclub.wide {
+  grid-template-columns: 1fr 1fr;
+  transition: 2s ease-in-out;
+}*/
+.noneBar {
+  width: 0px;
+}
+.sideBar {
+  width: 0px;
+  transition: width 1s ease-in-out, opacity 1s cubic-bezier(1,-0.32, 1, 0.32);
+  display: grid;
+  opacity: 0;
+  margin-left: 0;
+}
+.sideBar.show {
+  width: 36vw;
+  opacity: 1;
+  margin-left: 40px;
+}
+
+.listHead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-items: flex-start;
+  align-items: baseline;
+  margin: 20px 0 0;
+}
+.listBar {
+/*  display: grid;
   justify-content: center;
   grid-auto-rows: auto;
+  align-content: flex-start;*/
 }
 .listBar.vote {
   grid-template-columns: 1fr auto;
@@ -104,6 +136,19 @@ button {
 .listItem.reading {
   border: 3px solid firebrick;
 }
+.voteItem {
+  background-color: ivory;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: flex-start;
+  min-height: 60px;
+}
+.itemVote > svg {
+  padding: 10px;
+}
+
 .book  {
   display: grid;
   grid-template-columns: 100px 1fr 40px;
@@ -147,25 +192,33 @@ button {
 }
 
 .editListButton {
-  width: 100px;
   justify-self: right;
-  background-color: firebrick;
+  /*background-color: firebrick;
+  width: 100px;
   color: white;
-  border: none;
-  padding: 10px 0;
+  border: none;*/
+}
+.search {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: column;
+  align-items: center;
 }
 .search input {
   width: 98%;
   height: 100%;
   justify-self: center;
   border: none;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid lightgrey;
   font-size: 2rem;
 }
 .search input:focus {
-  border: 0 none white;
-  background-color: black;
-  color: white;
+  border-bottom: 2px solid black;
+  background-color: white;
+  color: black;
+}
+*:focus {
+    outline: none;
 }
 .search input::placeholder {
   text-align: center;
@@ -174,11 +227,47 @@ button {
   display: none
 }
 
+
+.bookDetails {
+  display: grid
+}
+.bookDetails button {
+
+}
+
+.navigation {
+  grid-column: start / end;
+}
+.navigation ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+}
+.navigation li {
+}
+
+.booksList {
+  position: relative;
+  display: grid;
+  grid-auto-columns: minmax(200px, 1fr);
+  /*grid-auto-flow: column;*/
+}
 .booksList.toSelect {
 
 }
-
-
-.hidden {
-  display: none;
+.bookCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    'img title'
+    'foot foot';
+  margin: 10px 0;
+  background-color: ivory;
+  text-align: left;
 }
+.bookCard > header {grid-area: title}
+.bookCard > img {grid-area: img}
+.bookCard > div {grid-area: foot}

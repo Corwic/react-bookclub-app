@@ -6,46 +6,34 @@ import {
 } from 'react-router-dom';
 import {
   BookClubPage,
-  FormPage,
-  HomePage,
-  UserProfilePage,
-  CounterButtonPage,
-  GRSearchPage
+  ReadersPage,
+  ReadBooksPage,
 } from './pages';
-import { UserDataLoader } from './UserDataLoader';
-import { NavBar } from './NavBar';
+import { Header } from './components/Header';
+import { Navigation } from './components/Navigation';
 import { DataProvider } from './components/BookClubContext';
 import './App.css';
-
 
 function App() {
   return (
     <DataProvider>
       <Router>
-        <NavBar />
         <div className="App">
-          <Switch>
-            <Route path="/" exact>
-              <HomePage />
-            </Route>
-            <Route path="/bookclub">
-              <BookClubPage />
-            </Route>
-            <Route path="/gr-search">
-              <GRSearchPage />
-            </Route>
-            <Route path="/counter">
-              <CounterButtonPage />
-            </Route>
-            <Route path="/form">
-              <FormPage />
-            </Route>
-            <Route path="/user">
-              <UserDataLoader>
-                <UserProfilePage />
-              </UserDataLoader>
-            </Route>
-          </Switch>
+          <div className="bookclub">
+            <Header />
+            <Navigation />
+            <Switch>
+              <Route path="/" exact>
+                <BookClubPage />
+              </Route>
+              <Route path="/readers">
+                <ReadersPage />
+              </Route>
+              <Route path="/readbooks">
+                <ReadBooksPage />
+              </Route>
+            </Switch>
+          </div>
         </div>
       </Router>
     </DataProvider>

@@ -1,11 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Input } from '../components/Input';
+import { ListItems } from '../components/ListItems';
+import { Book } from '../components/Book';
+import { Reader } from '../components/Reader';
+import { SideBar } from '../components/SideBar';
 import { useLocalStorage } from '../components/useLocalStorage';
 import { EditModeContext } from '../components/EditModeContext';
 import { FaStar, FaHandPaper, FaTrash } from 'react-icons/fa';
 import { useData } from '../components/BookClubContext';
 
 /*export const BookClubPage = ( ) => { return (<p>temp</p>)};*/
+/* how to set teleport?? */
 
 export const BookClubPage = ( ) => {
   const [ currentReader, setCurrentReader ] = useLocalStorage ( 'current_reader', [] );
@@ -18,259 +23,73 @@ export const BookClubPage = ( ) => {
     addBook,
     removeBook,
     addReader,
-    removeReader } = useData();
+    removeReader,
+    callBookDetails,
+    readingNow,
+   } = useData();
 
     console.log(`${teleport[0]} ${teleport[1]}`);
 
   if (!currentReader.length) {
     console.log('currentReader is undefined');
     return (
-      <>
-        <h1>Book Club</h1>
-        <h2>Login</h2>
-        <div className="login">
-          <div className="readerList">
-          <h1>{(!readers.lenght) ? 'Are you in the list?' : 'Add readers' }</h1>
-            <EditModeContext.Provider value={editMode}>
-              <ListItems
-                listOf={'readers'}
-                items={readers}
-                onRemoveItem={removeReader}
-                onChooseOne={name => setCurrentReader([name])}
-              />
-            </EditModeContext.Provider>
-            <Input listOf={'readers'} onChooseItemData={data => addReader(data)}/>
-            <button
-              onClick={() => {console.log(`settint editMode to ${!editMode}`); setEditMode(!editMode)}}
-              className="editListButton">
-              Edit list
-            </button>
-          </div>
-        </div>
-      </>
+      <div className="listBar">
+        <h1>{(!readers.lenght) ? 'Are you in the list?' : 'Add readers' }</h1>
+        <EditModeContext.Provider value={editMode}>
+          <ListItems
+            listOf={'readers'}
+            items={readers}
+            onRemoveItem={removeReader}
+            onChooseItem={reader => {setCurrentReader([reader]); console.log('3rd level ' + reader)}}
+          />
+        </EditModeContext.Provider>
+        <Input listOf={'readers'} onChooseItemData={data => addReader(data)}/>
+        <button
+          onClick={() => {console.log(`settint editMode to ${!editMode}`); setEditMode(!editMode)}}
+          className="editListButton">
+          Edit list
+        </button>
+      </div>
     )
   };
 
+
   return (
     <>
-      <h1>Book Club</h1>
-      <p>Hi, {currentReader}!</p>
-      <div className="bookclub">
+        <div className="noneBar"></div>
         <div className="listBar">
+          {readingNow()
+            ?
+          <>
+          <div className="listHead readingnow">
+            <h2>Reading now</h2>
+            <button onClick={''} className="editListButton">B</button>
+          </div>
+          <Book
+            item={readingNow()}
+            onChoose={() => callBookDetails(readingNow().id)} />
+          </>
+            : null
+          }
+          <div className="listHead">
+            <h2>List of suggested books</h2>
+            <button onClick={() => {console.log(`settint editMode to ${!editMode}`); setEditMode(!editMode)}} className="editListButton">Edit list</button>
+          </div>
           <EditModeContext.Provider value={editMode}>
             <ListItems
               listOf={'books'}
-              items={books}
+              items={(!readingNow()) ? books : books.filter(book => !book.club.reading)}
               onRemoveItem={removeBook}
-              onChooseItem={() => alert('book')}
+              onChooseItem={() => console.log('book')}
             />
           </EditModeContext.Provider>
           <Input listOf={'books'} onChooseItemData={data => addBook(data)}/>
-          <button onClick={() => {console.log(`settint editMode to ${!editMode}`); setEditMode(!editMode)}} className="editListButton">Edit list</button>
         </div>
-        {
-          teleport[0] == 'vote'
-            ?
-        <div className="listBar">
-          <VoteForBook />
-        </div>
-            : null
-        }
-      </div>
+        <SideBar />
     </>
   )
 };
-/*-----------------------------------------------------------------------*/
-export const VoteForBook = ({  }) => {
-  const { books, readers, teleport, rates, vote } = useData();
-  // teleport is the variable to hold the bookID, that user will vote for
-  // teleport structure is [buttonpressed, bookID]
-  const v = Array(readers.length).fill({
-    book: teleport[1],
-    reader: '',
-    rate: 0,
-  });
-  const vData = rates.filter(v => v.book == teleport[1]);
-  const [ votesSelected, setVotesSelected ] = useState(vData.length == 0 ? v : vData);
 
-  useEffect(()=>{
-    setVotesSelected(vData.length == 0 ? v : vData);
-  }, [teleport[1]]);
-
-  const onVoteForBook = ( id, votes, name ) => {
-    const newVote = votesSelected.slice();
-    newVote.splice(id, 1, {
-      book: teleport[1],
-      reader: name,
-      rate: votes,
-    });
-    setVotesSelected(newVote);
-  };
-
-  if (!readers.length) {
-    return <div className="listItem">No items</div>;
-  }
-
-  return (<>
-            <h2>Voting for {teleport[1]}</h2>
-          {readers.map( (reader, i) =>
-            <>
-              <Reader key={reader.name} id={i}
-                item={reader}
-              />
-              <Vote key={reader.name+'Votes'} id={i}
-                votes={votesSelected[i].rate}
-                onVote={votes => {onVoteForBook(i, votes, reader.name)}}/>
-            </>
-        )}
-            <button onClick={() => vote(teleport[1], votesSelected)}>Save votes</button>
-          </>)
-};
-/*-------
-<>
-<button onClick={() => vote(teleport, 'data')}>Voted</button>
-</>
-----------------------------------------------------------------*/
-
-const createArray = length => [...Array(length)];
-const Hand = ({ selected = false, onSelect = f=>f }) => (
-  <FaHandPaper
-    style={{paddingRight: '5px'}}
-    color={selected ? 'firebrick' : 'grey'}
-    onClick={onSelect} />
-);
-
-export const Vote = ({ votes, onVote = f=>f, totalVotes = 3 }) => {
-
-  return (
-    <div className='itemVote'>
-      {createArray(totalVotes).map((n,i) => (
-        <Hand key={i} selected={votes > i} onSelect={() => {onVote(i + 1, '')}}/>
-      ))}
-    </div>
-  )
-};
-
-/*-----------------------------------------------------------------------*/
-
-export const Reader = ({ id, item, onRemove = f => f, onChoose = f => f }) => {
-  // const class = 'listItem__close ' + editModeToggl;
-  const editMode = useContext(EditModeContext);
-  const { teleport } = useData();
-
-
-  return (
-    <div
-      className="listItem reader"
-      onClick={() => {if (!teleport) onChoose(item.name)}}>
-      {item.name}
-      <button
-        className={(editMode===true) ? null : 'hidden'}
-        onClick={() => onRemove(id)}>
-        <FaTrash color={'white'} />
-      </button>
-    </div>
-  )
-};
-
-/*-----------------------------------------------------------------------*/
-
-export const Book = ({ id, item, onRemove = f => f, onChoose = f => f }) => {
-  // const class = 'listItem__close ' + editModeToggl;
-  const editMode = useContext(EditModeContext);
-  const { title, author, image_url, goodreads, club } = item;
-  const { vote, readIt, countReadingBooks, removeBook } = useData();
-  console.log('item');
-  console.log(item);
-  console.log('----');
-  return (
-    <div className={`listItem ${club.reading ? 'reading' : null }`}>
-      <div className="book">
-        <header>
-          <h2>{title}</h2>
-          <p>by {author.name}</p>
-          {club.votes != 0
-            ? <p>Votes: {club.votes}</p>
-            : null
-          }
-        </header>
-        <img
-          alt="Book cover"
-          src={image_url}/ >
-        {(editMode===true) ?
-        <div
-          className={`removeItem ${(editMode===true) ? null : 'hidden'}`}
-          onClick={() => {removeBook(item.id); alert(id);}}>
-          <FaTrash color={'white'} />
-        </div>
-          : club.votes == 0 ?
-        <div
-          onClick={() => vote(item.id)}
-          className={''}
-          style={{backgroundColor: 'gold'}}>
-          Vote for it
-        </div>
-          : countReadingBooks() == 0 ?
-        <div
-          onClick={() => readIt(item.id)}
-          className={''}
-          style={{color: 'firebrick'}}>
-          Read it
-        </div>
-          : club.reading ?
-        <div
-          onClick={() => readIt(item.id)}
-          className={''}
-          style={{color: 'firebrick'}}>
-          Make notes
-        </div>
-          : (club.notes) ?
-        <div
-          onClick={() => readIt(item.id)}
-          className={''}
-          style={''}>
-          Done
-        </div>
-          : null
-        }
-      </div>
-
-    </div>
-  )
-};
-//
-/*-----------------------------------------------------------------------*/
-
-export const ListItems = ({ items = [], listOf , onRemoveItem = f => f, onChooseItem = f => f }) => {
-  const { teleport, vote } = useData();
-
-  if (!items.length) {
-    return <div className="listItem">No items</div>;
-  }
-
-  if (listOf === 'readers')
-    return (
-      <>
-        {
-          items.map( (item, i) =>
-          <Reader
-            key={i} id={i}
-            item={item}
-            onRemove={onRemoveItem}
-            onChoose={onChooseItem} />
-          )
-        }
-      </>
-    );
-  if (listOf === 'books')
-    return items.map( (item, i) =>
-      <Book
-        key={i} id={i}
-        item={item}
-        onRemove={onRemoveItem}
-        onChoose={onChooseItem} />
-    );
-};
 
 
 /*
